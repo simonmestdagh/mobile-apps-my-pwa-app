@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
     updatefound () {
       console.log('New content is downloading.')
     },
-    updated () {
+    updated (reg) {
       console.log('New content is available; please refresh.')
       // Send out an event notification that we have new content available.
       document.dispatchEvent(new CustomEvent('swupdatefound', {
