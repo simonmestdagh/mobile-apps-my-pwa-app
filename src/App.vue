@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>THis is SImoojqmdf </h1>
+    <h1>THis is SImoojqmdf</h1>
     <img alt="Vue logo" src="./assets/logo.png" />
     <button v-if="updateAvailable" @click="update">Update</button>
   </div>
@@ -9,26 +9,33 @@
 <script>
 export default {
   name: "App",
-  components: {
-  },
+  components: {},
 
   created() {
     document.addEventListener("swupdatefound", this.updateTheApp, {
       once: true,
     });
   },
-  data: function() {
+  data: function () {
     return {
       registration: null,
       updateAvailable: false,
-    }
+    };
   },
   methods: {
     updateTheApp(e) {
       this.registration = e.detail;
       this.updateAvailable = true;
-    }
-  }
+    },
+    update() {
+      // Actual update
+      this.updateAvailable = false;
+      // Lazy evaluation
+      if (this.registration || this.registration.waiting) {
+        this.registration.waiting.postMessage({ type: "SKIP_WAITING" });
+      }
+    },
+  },
 };
 </script>
 
