@@ -14,14 +14,12 @@ export default {
   created() {
     document.addEventListener("swupdatefound", this.updateTheApp, {
       once: true,
-    });,
-     navigator.serviceWorker.addEventListener(
- 'controllerchange', () => {
- if (this.isRefreshing) return;
- this.isRefreshing = true;
- window.location.reload();
- }
- );
+    });
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (this.isRefreshing) return;
+      this.isRefreshing = true;
+      window.location.reload();
+    });
   },
   data: function () {
     return {
