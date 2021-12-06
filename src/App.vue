@@ -1,19 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <button v-if="updateAvailable" @click="update">Update</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+  },
+
+  created() {
+    document.addEventListener("swupdatefound", this.updateTheApp, {
+      once: true,
+    });
+  },
+  data: function() {
+    return {
+      registration: null,
+      updateAvailable: false,
+    }
+  },
+  methods: {
+    updateTheApp(e) {
+      this.registration = e.detail;
+      this.updateAvailable = true;
+    }
   }
-}
+};
 </script>
 
 <style>
