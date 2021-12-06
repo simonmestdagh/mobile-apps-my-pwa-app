@@ -2,18 +2,14 @@
   <div id="app">
     <h1>THis is SImoojqmdf </h1>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
     <button v-if="updateAvailable" @click="update">Update</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
   components: {
-    HelloWorld,
   },
 
   created() {
