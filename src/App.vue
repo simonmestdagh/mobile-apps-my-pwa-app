@@ -3,7 +3,7 @@
     <h1>This is POFKLF</h1>
     <img alt="Vue logo" src="./assets/logo.png" />
     <button v-if="updateAvailable" @click="update">Update</button>
-    <h1>dfsqjlmsdflkjmfdqslm </h1>
+    <h1>test </h1>
   </div>
 </template>
 
