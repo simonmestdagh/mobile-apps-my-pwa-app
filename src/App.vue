@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>THis is SImoojqmdf</h1>
+    <h1>This is PWA</h1>
     <img alt="Vue logo" src="./assets/logo.png" />
     <button v-if="updateAvailable" @click="update">Update</button>
   </div>
